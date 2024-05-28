@@ -1,0 +1,14 @@
+
+    <div class="search-container">
+      <label for="search-box">Search Payment Details</label>
+      <input #searchBox id="search-box" class="form-control" placeholder="Enter Card Owner Name" (input)="search(searchBox.value)" />
+
+      <ul class="search-result" *ngIf="payment$ | async as payments">
+        <li *ngFor="let payment of payments">
+          <a routerLink="/detail/{{payment.ID}}">
+            {{ payment.card_owner_name }}
+          </a>
+        </li>
+      </ul>
+    </div>
+
